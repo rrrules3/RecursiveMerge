@@ -7,22 +7,12 @@ package com.mycompany.mavenproject1;
 
 /**
  *
- * @author rohan
+ * @author Rohan
  */
 import java.util.Scanner;
-import static java.lang.System.currentTimeMillis;
 import java.util.Random;
-public class MergeSort {
-    void mergeSort(int[] a)
-	{       //Figures out start time and end time
-                long startTime = System.nanoTime();
-
-                long endTime = System.nanoTime();
-
-                // Calculates the processing time by finding the end time - star ttime
-                long timeElapsed = (endTime - startTime);
-                System.out.println("Processing Time: " + timeElapsed + "ns");
-	}
+import java.util.concurrent.TimeUnit;
+public class RecursiveMergeSort {
 	// To check if array is sorted or not
 	boolean isSorted(int[] a)
 	{
@@ -81,7 +71,6 @@ public class MergeSort {
          Scanner scan = new Scanner(System.in);
          System.out.println("how many elements?");
          int input = scan.nextInt();
-         double start = currentTimeMillis();
          Random randomize = new Random();
          int[] array = new int[input];
          
@@ -89,14 +78,15 @@ public class MergeSort {
 			array[i] = randomize.nextInt(1000);
 		}
          
-         MergeSort e = new MergeSort();
+         RecursiveMergeSort e = new RecursiveMergeSort();
          e.printArray(array);
+         double start = System.nanoTime();
          e.mergeSort(array, input);
          System.out.println("Sorted:");
-         double end = currentTimeMillis();
+         double end = System.nanoTime();
          double total = end - start;
          e.printArray(array);
-         System.out.println(total + " milliseconds.");
+         System.out.println("It took " + total + " nanoseconds.");
          
          
      }
