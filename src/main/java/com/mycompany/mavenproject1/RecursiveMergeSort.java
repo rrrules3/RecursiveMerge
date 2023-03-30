@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Rohan Rajesh
+ * March 29, 2023
+ * Recursive Merge Sort
+ * A program which runs a Recursive Merge Sort on an Array which has a random number of elements given by the user!
  */
 package com.mycompany.mavenproject1;
 
