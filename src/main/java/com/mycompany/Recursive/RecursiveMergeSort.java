@@ -4,7 +4,7 @@
  * Recursive Merge Sort
  * A program which runs a Recursive Merge Sort on an Array which has a random number of elements given by the user!
  */
-package com.mycompany.mavenproject1;
+package com.mycompany.Recursive;
 
 /**
  *
@@ -14,14 +14,6 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 public class RecursiveMergeSort {
-	// To check if array is sorted or not
-	boolean isSorted(int[] a)
-	{
-		for (int i = 1; i < a.length; i++)
-			if (a[i] < a[i - 1])
-				return false;
-		return true;
-	}
     public static void merge(int[] a, int[] leftside, int[] rightside, int left, int right) {
     int i = 0;
     int j = 0;
@@ -62,31 +54,35 @@ public class RecursiveMergeSort {
 } void printArray(int[] arr)
 {
     //this method helps us print out the array
+    System.out.print("{");
     for (int i = 0; i < arr.length; i++){
-    System.out.print(arr[i] + " ");
-    System.out.println();
+    System.out.print(arr[i] + ", ");
     }
+    System.out.print("}");
+    System.out.println();
 }
     
      public static void main(String args[]){
+         //Initializes Scanner
          Scanner scan = new Scanner(System.in);
-         System.out.println("how many elements?");
+         System.out.println("How many elements do you want to test?");
          int input = scan.nextInt();
          Random randomize = new Random();
          int[] array = new int[input];
-         
+         //Sets random integers between 1 and 1000 in the array
          for (int i = 0; i < array.length; i++) {
-			array[i] = randomize.nextInt(1000);
+			array[i] = randomize.nextInt(100);
 		}
          
-         RecursiveMergeSort e = new RecursiveMergeSort();
-         e.printArray(array);
+         RecursiveMergeSort tester = new RecursiveMergeSort();
+         System.out.println("Unsorted:");
+         tester.printArray(array);
          double start = System.nanoTime();
-         e.mergeSort(array, input);
+         tester.mergeSort(array, input);
          System.out.println("Sorted:");
          double end = System.nanoTime();
          double total = end - start;
-         e.printArray(array);
+         tester.printArray(array);
          System.out.println("It took " + total + " nanoseconds.");
          
          
